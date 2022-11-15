@@ -887,7 +887,7 @@ int main(int argc, char *argv[])
             (proxy.remote, binder_remote_died, &proxy);
 
     if (setup_vhci(&proxy)) {
-        gboolean bluetooth_on = FALSE;
+// QUARANTINE         gboolean bluetooth_on = FALSE;
 
         proxy.rfkill_fd = open("/dev/rfkill", O_RDONLY);
         proxy.rfkill_channel = g_io_channel_unix_new(proxy.rfkill_fd);
@@ -911,9 +911,9 @@ int main(int argc, char *argv[])
 
             if (event.type == RFKILL_TYPE_BLUETOOTH && event.idx == proxy.own_hci_index) {
                 if (event.soft || event.hard) {
-                    bluetooth_on = FALSE;
+// QUARANTINE                     bluetooth_on = FALSE;
                 } else {
-                    bluetooth_on = TRUE;
+// QUARANTINE                     bluetooth_on = TRUE;
                 }
             }
         }
